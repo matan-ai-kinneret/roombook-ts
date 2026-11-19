@@ -1,23 +1,23 @@
-# #1 · אי אפשר להזמין חדר מיד אחרי הזמנה קודמת
+# #1 · Can't book a room right after a previous booking
 
-**תוויות:** bug, priority:high · **נפתח על ידי:** נועה (דלפק הספרייה)
+**Labels:** bug, priority:high · **Opened by:** Noa (library desk)
 
-## מה קרה
-סטודנטית ניסתה להזמין את חדר 101 בין 11:00 ל-12:00. החדר היה תפוס רק עד 11:00, אבל המערכת החזירה "החדר כבר תפוס בזמן הזה". זה קורה כמעט כל יום ויוצר תור בדלפק.
+## What happened
+A student tried to book room 101 from 11:00 to 12:00. The room was only taken until 11:00, but the system returned "החדר כבר תפוס בזמן הזה" (the room is already taken at this time). This happens almost every day and creates a line at the desk.
 
-## איך לשחזר
+## How to reproduce
 ```
 roombook book --room R101 --student 315000333 --start 2026-12-06T11:00 --end 2026-12-06T12:00
 ```
-(בקובץ `data/bookings.json` כבר קיימת הזמנה לחדר 101 בין 10:00 ל-11:00.)
+(`data/bookings.json` already contains a booking for room 101 from 10:00 to 11:00.)
 
-## מה ציפינו
-לפי מפרט 0000, כלל R3: הזמנות צמודות מותרות. ההזמנה הייתה צריכה להיקבע.
+## Expected
+Per spec 0000, rule R3: back-to-back bookings are allowed. The booking should have been made.
 
-## מה קיבלנו
+## Actual
 ```
 שגיאה OVERLAP: החדר כבר תפוס בזמן הזה
 ```
 
-## הערות
-גם `roombook free` לא מציג את 11:00 כשעה פנויה. כנראה אותה סיבה.
+## Notes
+`roombook free` doesn't show 11:00 as a free slot either. Probably the same cause.

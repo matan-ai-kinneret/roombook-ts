@@ -1,20 +1,20 @@
-# #4 · הזמנה שבועית קבועה
+# #4 · Weekly recurring booking
 
-**תוויות:** feature, needs-spec · **נפתח על ידי:** ד״ר כהן, המחלקה להנדסת תוכנה
+**Labels:** feature, needs-spec · **Opened by:** Dr. Cohen, Department of Software Engineering
 
-## הבקשה
-קבוצות פרויקט גמר נפגשות כל שבוע באותו יום ובאותה שעה לאורך הסמסטר. היום הן מזמינות ידנית כל שבוע מחדש, ולפעמים מישהו מקדים אותן. נבקש אפשרות להזמין את אותו חדר באותה שעה, פעם בשבוע, למספר שבועות.
+## The request
+Capstone project groups meet every week on the same day and at the same time throughout the semester. Today they book manually every week, and sometimes someone gets there first. We'd like to be able to book the same room at the same time, once a week, for several weeks.
 
-## דוגמה
-חדר 201, כל יום שני 16:00–18:00, 10 שבועות החל מ-7.12.2026.
+## Example
+Room 201, every Monday 16:00–18:00, 10 weeks starting 7.12.2026.
 
-## מה חשוב לנו
-- אם אחד השבועות תפוס, לקבל דוח ברור: אילו תאריכים נקבעו ואילו לא, ולמה.
-- אפשרות לבטל את כל הסדרה בפקודה אחת.
-- הכללים הרגילים (שעות פתיחה, מגבלה יומית, קיבולת) חלים על כל מופע.
+## What matters to us
+- If one of the weeks is taken, get a clear report: which dates were booked and which weren't, and why.
+- The option to cancel the whole series with a single command.
+- The regular rules (opening hours, daily limit, capacity) apply to every occurrence.
 
-## שאלות פתוחות
-- האם לקבוע חלקית (מה שאפשר) או "הכל או כלום"?
-- מגבלה על מספר שבועות מקסימלי?
+## Open questions
+- Book partially (whatever is possible) or "all or nothing"?
+- A limit on the maximum number of weeks?
 
-> יעבוד בזוגות במפגש 5: כל זוג פותח branch ו-PR לפי חוקי ה-Git של הצוות.
+> To be worked on in pairs in Session 5: each pair opens a branch and a PR following the team's Git rules.
