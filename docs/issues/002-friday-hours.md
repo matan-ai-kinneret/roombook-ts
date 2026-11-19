@@ -1,21 +1,21 @@
-# #2 · המערכת מאפשרת הזמנות ביום שישי אחרי 14:00
+# #2 · The system allows bookings on Friday after 14:00
 
-**תוויות:** bug · **נפתח על ידי:** אבי (אחראי משמרות)
+**Labels:** bug · **Opened by:** Avi (shift manager)
 
-## מה קרה
-ביום שישי קיבלנו שלוש הזמנות לשעות 15:00–17:00. הספרייה נסגרת בשישי ב-14:00, והסטודנטים הגיעו לדלת נעולה.
+## What happened
+On Friday we received three bookings for 15:00–17:00. The library closes at 14:00 on Fridays, and the students arrived at a locked door.
 
-## איך לשחזר
+## How to reproduce
 ```
 roombook book --room R202 --student 315000444 --start 2026-12-04T15:00 --end 2026-12-04T16:00
 ```
-(2026-12-04 הוא יום שישי.)
+(2026-12-04 is a Friday.)
 
-## מה ציפינו
-שגיאה `OUTSIDE_HOURS`, לפי כלל R1 במפרט 0000.
+## Expected
+An `OUTSIDE_HOURS` error, per rule R1 in spec 0000.
 
-## מה קיבלנו
-`נקבע: …` — ההזמנה נשמרה.
+## Actual
+`נקבע: …` (booked) — the booking was saved.
 
-## הערות
-`roombook free --day 2026-12-04` מציג חלונות עד 22:00.
+## Notes
+`roombook free --day 2026-12-04` shows free windows until 22:00.

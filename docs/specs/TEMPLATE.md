@@ -1,30 +1,30 @@
-# מפרט NNNN — <שם הפיצ'ר>
+# Spec NNNN — <feature name>
 
-סטטוס: טיוטה | בבדיקה | מאושר · בעלים: <שם> · issue: #<מספר>
+Status: Draft | In review | Approved · Owner: <name> · issue: #<number>
 
-## רקע
-מה קורה היום, ולמה זה בעיה. משפט או שניים, עם נתון אם יש.
+## Background
+What happens today, and why it's a problem. A sentence or two, with a data point if you have one.
 
-## מטרה
-מה ישתנה עבור המשתמש כשהפיצ'ר יעלה. מטרה אחת, מדידה.
+## Goal
+What will change for the user once the feature ships. One measurable goal.
 
-## תרחישי שימוש
-1. <מי> רוצה <מה> כדי <למה>.
+## Use cases
+1. <who> wants <what> so that <why>.
 2. …
 
-## קריטריוני קבלה
-כל קריטריון הופך לבדיקה אחת לפחות.
+## Acceptance criteria
+Every criterion becomes at least one test.
 
-- **בהינתן** <מצב התחלתי>, **כאשר** <פעולה>, **אז** <תוצאה צפויה>.
-- **בהינתן** …, **כאשר** …, **אז** …
-- מקרה קצה: …
-- שגיאה: …
+- **Given** <initial state>, **when** <action>, **then** <expected result>.
+- **Given** …, **when** …, **then** …
+- Edge case: …
+- Error: …
 
-## השפעה על הקוד
-קבצים / פונקציות שישתנו, ממשק חדש (חתימות), שינויי נתונים.
+## Impact on the code
+Files / functions that will change, new interface (signatures), data changes.
 
-## מחוץ לתחום
-מה **לא** ייעשה במסגרת המפרט הזה, גם אם זה נשמע קשור.
+## Non-goals
+What will **not** be done as part of this spec, even if it sounds related.
 
-## שאלות פתוחות
+## Open questions
 - [ ] …

@@ -1,28 +1,28 @@
-# מפרט 0000 — כללי הזמנת חדרי לימוד
+# Spec 0000 — Study-room booking rules
 
-סטטוס: מאושר · בעלים: צוות roombook · עודכן: נובמבר 2026
+Status: Approved · Owner: roombook team · Updated: November 2026
 
-## רקע
-ספריית כנרת מציעה 8 חדרי לימוד לסטודנטים. עד היום ההזמנות נוהלו בטופס נייר בדלפק. roombook מחליפה את הטופס בכלי שורת פקודה ובהמשך בממשק API. כל הזמנים הם בשעון מקומי (ישראל), בלי המרות אזורי זמן.
+## Background
+The Kinneret library offers 8 study rooms to students. Until now, bookings were managed on a paper form at the desk. roombook replaces the form with a command-line tool and, later, an API. All times are local time (Israel), with no time-zone conversions.
 
-## הכללים
+## The rules
 
-| קוד | כלל | קוד שגיאה |
+| Code | Rule | Error code |
 | --- | --- | --- |
-| R1 | שעות פתיחה: א׳–ה׳ 08:00–22:00, ו׳ 08:00–14:00, שבת סגור. הזמנה חייבת להתחיל ולהסתיים באותו יום ובתוך שעות הפתיחה. | `OUTSIDE_HOURS` |
-| R2 | אורך הזמנה: לפחות 30 דקות ולכל היותר 3 שעות. התחלה וסיום רק בחצאי שעות (‎:00 או ‎:30). | `BAD_LENGTH`, `NOT_ON_SLOT` |
-| R3 | אין חפיפה בין שתי הזמנות פעילות באותו חדר. **הזמנות צמודות מותרות**: 10:00–11:00 ו-11:00–12:00 אינן חופפות. | `OVERLAP` |
-| R4 | סטודנט יכול להחזיק עד 2 הזמנות פעילות ביום אחד (בכל החדרים יחד). | `DAILY_LIMIT` |
-| R5 | גודל הקבוצה לא יעלה על קיבולת החדר. | `OVER_CAPACITY` |
+| R1 | Opening hours: Sun–Thu 08:00–22:00, Fri 08:00–14:00, Saturday closed. A booking must start and end on the same day and within opening hours. | `OUTSIDE_HOURS` |
+| R2 | Booking length: at least 30 minutes and at most 3 hours. Start and end only on half-hour boundaries (:00 or :30). | `BAD_LENGTH`, `NOT_ON_SLOT` |
+| R3 | No overlap between two active bookings in the same room. **Back-to-back bookings are allowed**: 10:00–11:00 and 11:00–12:00 do not overlap. | `OVERLAP` |
+| R4 | A student may hold up to 2 active bookings on a single day (across all rooms combined). | `DAILY_LIMIT` |
+| R5 | Group size may not exceed the room's capacity. | `OVER_CAPACITY` |
 
-הזמנה מבוטלת (`cancelled: true`) לא נספרת באף כלל.
+A cancelled booking (`cancelled: true`) is not counted by any rule.
 
-## קריטריוני קבלה (דוגמאות)
-- **בהינתן** חדר 101 תפוס 10:00–11:00 ביום ראשון, **כאשר** סטודנט מזמין 11:00–12:00, **אז** ההזמנה נקבעת.
-- **בהינתן** יום שישי, **כאשר** סטודנט מזמין 13:30–14:30, **אז** מתקבלת שגיאה `OUTSIDE_HOURS`.
-- **בהינתן** סטודנט עם שתי הזמנות ביום ראשון, **כאשר** הוא מזמין שלישית באותו יום, **אז** מתקבלת שגיאה `DAILY_LIMIT`.
-- **בהינתן** חדר 102 בקיבולת 2, **כאשר** קבוצה של 3 מזמינה, **אז** מתקבלת שגיאה `OVER_CAPACITY`.
+## Acceptance criteria (examples)
+- **Given** room 101 is taken 10:00–11:00 on Sunday, **when** a student books 11:00–12:00, **then** the booking is made.
+- **Given** a Friday, **when** a student books 13:30–14:30, **then** an `OUTSIDE_HOURS` error is returned.
+- **Given** a student with two bookings on Sunday, **when** they book a third on the same day, **then** a `DAILY_LIMIT` error is returned.
+- **Given** room 102 with capacity 2, **when** a group of 3 books it, **then** an `OVER_CAPACITY` error is returned.
 
-## מחוץ לתחום
-- תשלום, אישור ספרן, הזמנות חוזרות (ראו issue 004), רשימת המתנה (ראו issue 003).
-- הרשאות וזהות: `student_id` הוא מחרוזת חופשית בשלב זה.
+## Non-goals
+- Payment, librarian approval, recurring bookings (see issue 004), waitlist (see issue 003).
+- Permissions and identity: `student_id` is a free-form string at this stage.

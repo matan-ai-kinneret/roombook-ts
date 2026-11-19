@@ -1,17 +1,17 @@
-# roombook — הנחיות ל-Claude (שלד, להשלים במפגש 3)
+# roombook — Instructions for Claude (skeleton, complete in Session 3)
 
-## מה הפרויקט
-TODO: משפט אחד — מה המערכת עושה ולמי.
+## What the project is
+TODO: one sentence — what the system does and for whom.
 
-## פקודות
-TODO: איך מריצים בדיקות, lint ו-CLI.
+## Commands
+TODO: how to run tests, lint, and the CLI.
 
-## מבנה
-TODO: איפה הכללים, איפה השירות, איפה הבדיקות.
+## Structure
+TODO: where the rules live, where the service lives, where the tests live.
 
-## חוקים
-TODO: מה אסור לגעת בו (רמז: data/), מה חובה לפני commit.
-TODO: איך כותבים בדיקה חדשה.
+## Rules
+TODO: what must not be touched (hint: data/), what is required before a commit.
+TODO: how to write a new test.
 
-## מפרטים
-TODO: היכן נמצאים המפרטים, ומה עושים לפני פיצ'ר חדש.
+## Specs
+TODO: where the specs live, and what to do before a new feature.
